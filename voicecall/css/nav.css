@@ -1,0 +1,120 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"); /*구글폰트를 쓸 수 있다. */
+
+/*Varuables CSS*/
+:root{
+    /*color*/
+    --first-color:#808080;
+    --second-color: #efb11c;
+    --body-color:#fff;
+
+    /* font */
+    --body-font: 'Nanum Gothic', sans-serif;
+    --h1-font-size: 2rem;
+    --h2-font-size:1.5rem;
+    --h3-font-size:1.25rem;
+    --normal-font-size:1rem;
+    --small-font-size:0.8rem;
+    --smaller-font-size:0.6rem;
+    --font-thin:200;
+    --font-regular:400;
+    --font-bold:700;
+}
+
+body {
+    font-family: var(--body-font); /*Hamhlet 체 적용*/
+    font-size: var(--normal-font-size);
+    color:#000;
+}
+header{
+    background-color: var(--first-color);
+    position:fixed; /*스크롤 해도 항상 위치 고정하자*/ /*본문과는 다른 영역(본문이 가려져 있는 상태)*/
+    top:0;
+    right:0; /*오른쪽 끝까지 */
+    left:0;  /*왼쪽 끝까지 */
+}
+nav{
+    height:44px;    
+}
+/* 로고 */
+.logoimg{
+    width: 16px;
+    height:16px;
+}
+.nav.container{
+    display: flex; /*기본값: 수평정렬*/
+    justify-content: space-between;
+    align-items: center; /*교차축 가운데*/
+    padding:0 16; /*위 아래 padding은 0,좌 우는 16*/
+    color:#fff;
+}
+.nav.container a{
+    color:#fff;
+}
+.nav-logo{
+    font-size: var(--h2-font-size);
+}
+.nav-list{
+    display: flex;/*수평 배치 */
+    column-gap: 80px; /*요소 간 간격*/
+    font-weight: var(--font-bold);
+
+}
+.nav-toggle{
+    font-size: var(--h2-font-size);
+    visibility: hidden;
+
+}
+.nav-link{
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/* tablet:요즘 태블릿은 더 크다.*/
+@media screen and (max-width:720px) {
+    
+}
+/*moblie*/
+@media screen and (max-width:540px) {
+    /* .nav-logo 가운데로 */
+    .nav-logo{
+        margin:0 auto;
+    }
+    /* .nav-list 아래로, 안보이게 */
+    .nav-list{
+        position: absolute; /*포지션을 통해 부모값인 reletive를 기준으로 절댓값, 위 없으니까 헤더바 컨테이너에서 분리됨*/
+        top:44px;
+        right:0; /*한 줄당 너비가 오른쪽 끝까지 넓어짐 */
+        left:0; /* 한 줄당 너비가 왼쪽 끝까지*/
+
+        flex-direction: column; /* nav-item 수직정렬*/
+        /* align-items: center; 아이템 크기가 줄었음 */
+        text-align: center; /*차지하는 크기는 똑갔지만 가운데 정렬*/
+        background-color: rgba(239, 177, 28,0.4);
+        backdrop-filter: blur(4px);
+        height:0;/*처음에 메뉴들이 안보이게 */
+        transition: all 0.4s;
+        overflow: hidden; /* height:0; 인데도 내용이 넘치면 안보이게 하기*/
+    }
+    .nav-item{
+        padding: 1em 0; /*item들의 위 아래 여백/상하 여백은 16px(=1em),좌우 여백은 0*/
+        border-bottom: 2px solid #fff;
+
+    }
+    .nav-link{
+        display: block; /*링크를 양옆으로 넓게*/
+
+    }
+    /* .nav-toggle 보이게 */
+    .nav-toggle{
+        visibility: visible;
+        position: absolute; /*로고를 가운데 정렬(햄버거메뉴가 공간을 차지함)*/
+        right:16px; /*햄버거 메뉴 원위치/오른쪽을 기준으로 16px만큼*/
+        cursor: pointer;  /*커서 모양 손모양으로 바꾸기 */
+    }
+    /* .show-menu하면, .nav-list 보이게  */
+    
+    /* .show-menu하면, .nav-toggle의 모양 X자로 */
+    .show-menu{
+        height:158px; 
+    }
+}  

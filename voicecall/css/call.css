@@ -1,0 +1,37 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+main{
+    height:100vh;
+    background-image: linear-gradient(to bottom,#1A512D,#000);
+    display:grid;
+    grid-template-areas: 
+        " ''  profile '' "
+        "answer '' noanswer";
+    gap:50%;
+}
+.profile{
+    margin:auto;
+    display: grid;
+    grid-area: "profile";
+    justify-content: center;
+    color: #fff;
+    height:40%;
+    
+}
+.title{
+    justify-self: center;
+    height:24px;
+}
+.phonenumber{
+    justify-self: center;
+    height:24px;
+}
+.answer{
+    display: grid;
+    grid-area: "answer";
+    padding-left: 10%;
+    
+}

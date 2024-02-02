@@ -1,0 +1,60 @@
+
+*{
+    margin: 0;
+    padding:0;
+}
+/* 1-1 배너  */
+.mainscreen{
+    text-align: center;
+    
+}
+.mainscreenimg{
+    position: relative;
+    z-index: 1;
+    height: 600px; 
+    object-fit: cover;
+}
+
+.title{
+    font-family: var(--body-font);
+    color:#fff;
+    position: absolute;
+    align-items: center;
+    z-index: 2;
+    /* 가운데 정렬  */
+    left: 50%;
+    top:40%;
+    transform: translate(-50%,-50%);
+}
+/* 2. 배너 사진 밑 성우란? 설명 */
+.content{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 2fr;
+}
+/* 2-1. 글자를 담은 영역 */
+.desc{
+    grid-column: 2;
+    text-align: center;
+}
+/* 2-2. 마이크 아이콘 */
+
+.micicon{
+    font-size: 48px;
+    color: var(--first-color)
+    
+}
+/* 2-3. '성우란?' 부분 글자 */
+.h3{
+    font-family: var(--font-bold);
+}
+.desc_p{
+    font-family: var(--normal-font-size);
+
+}
+/* 3. cards 부분 */
+.now{
+    grid-column: 2;
+    grid-row: 2;
+
+}
