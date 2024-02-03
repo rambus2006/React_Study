@@ -8,13 +8,25 @@
     text-align: center;
     
 }
+/* 1-2. 배너 이미지 사진 */
 .mainscreenimg{
     position: relative;
     z-index: 1;
-    height: 600px; 
+    height: 740px; 
     object-fit: cover;
 }
-
+/* 1-3. title 아래서 위로 오는 애니메이션 */
+@keyframes fadeInUp {
+    0%{
+        opacity: 0;
+        transform: translateY(-80);
+    }
+    to{
+        opacity: 1;
+        transform:none;
+    }
+}
+/* 1-4. title 위치 및 폰트 */
 .title{
     font-family: var(--body-font);
     color:#fff;
@@ -25,17 +37,25 @@
     left: 50%;
     top:40%;
     transform: translate(-50%,-50%);
+    animation: fadeInUp 1s;
 }
-/* 2. 배너 사진 밑 성우란? 설명 */
+
+
+
+/* 설명란 시작 */
 .content{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 2fr;
+    grid-template-rows: 3fr;
+   
 }
+/* 2. 배너 사진 밑 성우란? 설명란 시작 */
 /* 2-1. 글자를 담은 영역 */
 .desc{
+    margin-bottom:100px;
     grid-column: 2;
     text-align: center;
+
 }
 /* 2-2. 마이크 아이콘 */
 
@@ -47,14 +67,50 @@
 /* 2-3. '성우란?' 부분 글자 */
 .h3{
     font-family: var(--font-bold);
+   
 }
+/* 2-4. 밑에 설명  */
 .desc_p{
     font-family: var(--normal-font-size);
-
+    padding:30px;
 }
-/* 3. cards 부분 */
-.now{
+/* 2-5.밑에 버튼 -> css 애니메이션 넣기 */
+
+
+/* 3. 성우 소개 */
+.cv{
     grid-column: 2;
     grid-row: 2;
-
+    text-align: center;
+    margin-bottom:100px;
 }
+/* 3-1.버튼 그룹 */
+.buttongroup{
+    padding:50px;
+}
+/* 3-2. 버튼 전체 원모양 만들기 */
+.cvbtn{
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+    margin: 10px;
+}
+/*3-3. 각 버튼별 이미지 넣기  */
+.cv1{
+    background-image: url("/img/kid.jpg");
+    background-repeat : no-repeat;
+    background-size:cover;
+}   
+.cv1:hover{
+    transform: rotateY(180deg);
+    background-image: url("/img/성우_신용우.jpg");
+}
+/* 4. 지금 성우계에서는... */
+.news{
+    grid-column: 2;
+    grid-row: 3;
+    text-align: center;
+    margin-bottom:100px;
+}
+/* 3. cards 부분 */
+
