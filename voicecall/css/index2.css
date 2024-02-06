@@ -202,11 +202,12 @@
     text-align: center;
     margin-bottom:100px;
 }
-/* 3. cards 부분 */
+/* 3. cards 부분 - 위 아래 부분 조정하기 */
 /* 3-1.new 버튼  */
 .news_button{
     margin:30px
 }
+
 /* 4. footer 보충 */
 footer{
     display: grid;
