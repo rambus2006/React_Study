@@ -53,20 +53,26 @@ import "./App.css";
 //   return <div style={style}>{name}</div>;
 // }
 //방법2) 미리 선언하지 않고 바로 style 값을 지정하고 싶을 때
+// function App() {
+//   const name = "리액트";
+//   return (
+//     <div
+//       style={{
+//         backgroundColor: "black",
+//         color: "aqua",
+//         fontSize: "48px",
+//         fontWeight: "bold",
+//         padding: 16,
+//       }}
+//     >
+//       {name}
+//     </div>
+//   );
+// }
+
+//2.4.7 class 대신 className
 function App() {
   const name = "리액트";
-  return (
-    <div
-      style={{
-        backgroundColor: "black",
-        color: "aqua",
-        fontSize: "48px",
-        fontWeight: "bold",
-        padding: 16,
-      }}
-    >
-      {name}
-    </div>
-  );
+  return <div className="react">{name}</div>;
 }
 export default App;
