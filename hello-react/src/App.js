@@ -120,11 +120,15 @@ import "./App.css";
 // }
 
 //3.1 클래스형 컴포넌트 선언
-import { Component } from "react";
-class App extends Component {
-  render() {
-    const name = "react";
-    return <div className="react">{name}</div>;
-  }
-}
+// import { Component } from "react";
+// class App extends Component {
+//   render() {
+//     const name = "react";
+//     return <div className="react">{name}</div>;
+//   }
+// }
+import MyComponent from "./MyComponent";
+const App = () => {
+  return <MyComponent />;
+};
 export default App;
