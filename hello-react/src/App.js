@@ -100,22 +100,31 @@ import "./App.css";
 // }
 
 //2.4.9 주석
-function App() {
-  const name = "리액트";
-  return (
-    <>
-      {/* 주석은 이렇게 작성합니다.  */}
-      <div
-        className="react" //시작 태그를 여러줄로 작성하게 된다면 야기에 주석을 작성할 수 있습니다.
-      >
-        {name}
-      </div>
-      {/* '//'이런 주석이나 여러줄 태그이면 페이지에 그대로 나타나게 된다   */}
-      '//'이런 주석이나 /* */ 태그이면 페이지에 그대로 나타나게 된다
-      <input />
-    </>
-    //esLint 는 상단 메뉴에서 보기> 문제를 클릭해 열 수 있다. 빨간 줄은 꼭 고쳐야 함
-    //prettier는 f1 ->format이라고 입력한 후 enter를 누르기
-  );
+// function App() {
+//   const name = "리액트";
+//   return (
+//     <>
+//       {/* 주석은 이렇게 작성합니다.  */}
+//       <div
+//         className="react" //시작 태그를 여러줄로 작성하게 된다면 야기에 주석을 작성할 수 있습니다.
+//       >
+//         {name}
+//       </div>
+//       {/* '//'이런 주석이나 여러줄 태그이면 페이지에 그대로 나타나게 된다   */}
+//       '//'이런 주석이나 /* */ 태그이면 페이지에 그대로 나타나게 된다
+//       <input />
+//     </>
+//     //esLint 는 상단 메뉴에서 보기> 문제를 클릭해 열 수 있다. 빨간 줄은 꼭 고쳐야 함
+//     //prettier는 f1 ->format이라고 입력한 후 enter를 누르기
+//   );
+// }
+
+//3.1 클래스형 컴포넌트 선언
+import { Component } from "react";
+class App extends Component {
+  render() {
+    const name = "react";
+    return <div className="react">{name}</div>;
+  }
 }
 export default App;
