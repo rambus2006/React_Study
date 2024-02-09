@@ -34,8 +34,39 @@ import "./App.css";
 //   return <div>{name}</div>;
 // }
 //3. name 값이 undefined 일 때 보여주고 싶은 문구가 있다면 다음과 같이 코드를 작성하면 된다.
+// function App() {
+//   const name = undefined;
+//   return <div>{name || "리액트"}</div>;
+// }
+
+//2.4.6. DOM에 스타일 적용
+//방법1) style 객체를 미리 선언하고 div 의 style 값으로 지정하는 방법
+// function App() {
+//   const name = "리액트";
+//   const style = {
+//     backgroundColor: "black",
+//     color: "aqua",
+//     fontSize: "48px",
+//     fontWeight: "bold",
+//     padding: 16,
+//   };
+//   return <div style={style}>{name}</div>;
+// }
+//방법2) 미리 선언하지 않고 바로 style 값을 지정하고 싶을 때
 function App() {
-  const name = undefined;
-  return <div>{name || "리액트"}</div>;
+  const name = "리액트";
+  return (
+    <div
+      style={{
+        backgroundColor: "black",
+        color: "aqua",
+        fontSize: "48px",
+        fontWeight: "bold",
+        padding: 16,
+      }}
+    >
+      {name}
+    </div>
+  );
 }
 export default App;
