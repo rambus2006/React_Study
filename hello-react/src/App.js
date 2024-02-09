@@ -71,8 +71,31 @@ import "./App.css";
 // }
 
 //2.4.7 class 대신 className
+// function App() {
+//   const name = "리액트";
+//   return <div className="react">{name}</div>;
+// }
+// export default App;
+
+//2.4.8.꼭 닫아야 하는 태그
+//방법1) 일반적인 태그 닫기
+// function App() {
+//   const name = "리액트";
+//   return (
+//     <>
+//       <div className="react">{name}</div>
+//       <input></input>
+//     </>
+//   );
+// }
+//방법2) self-closing태그
 function App() {
   const name = "리액트";
-  return <div className="react">{name}</div>;
+  return (
+    <>
+      <div className="react">{name}</div>
+      <input />
+    </>
+  );
 }
 export default App;
