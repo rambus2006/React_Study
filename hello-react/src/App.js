@@ -89,11 +89,28 @@ import "./App.css";
 //   );
 // }
 //방법2) self-closing태그
+// function App() {
+//   const name = "리액트";
+//   return (
+//     <>
+//       <div className="react">{name}</div>
+//       <input />
+//     </>
+//   );
+// }
+
+//2.4.9 주석
 function App() {
   const name = "리액트";
   return (
     <>
-      <div className="react">{name}</div>
+      {/* 주석은 이렇게 작성합니다.  */}
+      <div
+        className="react" //시작 태그를 여러줄로 작성하게 된다면 야기에 주석을 작성할 수 있습니다.
+      >
+        {name}
+      </div>
+      {/* '//'이런 주석이나 여러줄 태그이면 페이지에 그대로 나타나게 된다   */}
       <input />
     </>
   );
