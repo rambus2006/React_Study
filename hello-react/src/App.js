@@ -130,6 +130,10 @@ import "./App.css";
 import MyComponent from "./MyComponent";
 const App = () => {
   // return <MyComponent name='react'/>; 컴포넌트를 사용할 때 props값 지정하기
-  return <MyComponent>리액트</MyComponent>;
+  return (
+    <MyComponent name="react" favoriteNumber={1}>
+      리액트
+    </MyComponent>
+  );
 };
 export default App;
