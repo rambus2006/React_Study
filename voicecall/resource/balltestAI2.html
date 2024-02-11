@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/balltest.css">
+</head>
+<body>
+    <canvas id="myCanvas"></canvas>
+</body>
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var images = []; // 이미지를 담을 배열
+//캔버스 이미지를 설정하는 코드 
+canvas.height = window.innerHeight - 50
+canvas.width = window.innerWidth - 50
+
+window.addEventListener('resize', () => {  
+  canvas.height = window.innerHeight - 50
+  canvas.width = window.innerWidth - 50
+})
+
+// 이미지 객체 생성자
+function ImageObject(src, x, y, dx, dy, width, height) {
+    this.image = new Image();
+    this.image.src = src;
+    this.x = x;
+    this.y = y;
+    this.dx = dx;
+    this.dy = dy;
+    this.width = width;
+    this.height = height;
+}
+
+// 이미지 그리기 메서드
+ImageObject.prototype.draw = function() {
+    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+}
+
+// 이미지 업데이트 메서드
+ImageObject.prototype.update = function() {
+    if(this.x + this.dx > canvas.width - this.width || this.x + this.dx < 0) {
+        this.dx = -this.dx;
+    }
+    if(this.y + this.dy > canvas.height - this.height || this.y + this.dy < 0) {
+        this.dy = -this.dy;
+    }
+    this.x += this.dx;
+    this.y += this.dy;
+}
+
+// 이미지 객체 생성
+var imagePaths = ['../img/image22.png', '../img/image23.png', '../img/image24.png', '../img/image27.png']; // 이미지 경로 배열
+
+for (var i = 0; i < 5; i++) {
+    var x = Math.random() * (canvas.width - 50);
+    var y = Math.random() * (canvas.height - 50);
+    var dx = (Math.random() - 0.5) * 4; // 속도를 랜덤으로 설정
+    var dy = (Math.random() - 0.5) * 4;
+    var width = 50;
+    var height = 50;
+    ////이미지를 선택하는 코드 (변수 이름 신경쓰지 말기)
+    var randomImagePath = imagePaths[i]; 
+
+    //Math.floor(Math.random() * imagePaths.length)
+    images.push(new ImageObject(randomImagePath, x, y, dx, dy, width, height));
+}
+
+//그리는 함수 
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for(var i = 0; i < (images.length); i++) {
+        images[i].draw();
+        images[i].update();
+    }
+}
+
+setInterval(draw, 10);
+</script>
+</html>

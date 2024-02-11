@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceCall</title>
+    <link rel="stylesheet" href="css/historyselect.css">
+    <link rel="stylesheet" href="../css/nav.css">
+
+    
+    <!-- bootstrapicon cdn-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- bootstrapcdn -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <!-- 구글폰트사용 cdn -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <script src="../js/historylogo.js"></script>
+  </head>
+<body>
+    <!-- 헤더 -->
+    <nav class="navbar navbar-expand-lg bg-" >
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">VoiceCall</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="job.html">직업소개</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">성우</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">성우소식</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+<!-- 헤더 끝 -->
+<div class="content">
+    <div class="title">
+        <h3 class="historytitle">대한민국 성우의 역사</h3>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            방송국선택
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">투니버스</a></li>
+            <li><a class="dropdown-item" href="#">kbs</a></li>
+            <li><a class="dropdown-item" href="#">sbs</a></li>
+            <li><a class="dropdown-item" href="#">mbc</a></li>
+          </ul>
+        </div>
+    </div>
+    <canvas id="myCanvas"></canvas>
+</div>
+</body>
+<script>
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  var images = []; // 이미지를 담을 배열
+  //캔버스 이미지를 설정하는 코드 
+  canvas.height = window.innerHeight - 50
+  canvas.width = window.innerWidth - 50
+  
+  window.addEventListener('resize', () => {  
+    canvas.height = window.innerHeight - 50
+    canvas.width = window.innerWidth - 50
+  })
+  
+  // 이미지 객체 생성자
+  function ImageObject(src, x, y, dx, dy, width, height) {
+      this.image = new Image();
+      this.image.src = src;
+      this.x = x;
+      this.y = y;
+      this.dx = dx;
+      this.dy = dy;
+      this.width = width;
+      this.height = height;
+  }
+  
+  // 이미지 그리기 메서드
+  ImageObject.prototype.draw = function() {
+      ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+  }
+  
+  // 이미지 업데이트 메서드
+  ImageObject.prototype.update = function() {
+      if(this.x + this.dx > canvas.width - this.width || this.x + this.dx < 0) {
+          this.dx = -this.dx;
+      }
+      if(this.y + this.dy > canvas.height - this.height || this.y + this.dy < 0) {
+          this.dy = -this.dy;
+      }
+      this.x += this.dx;
+      this.y += this.dy;
+  }
+  
+  // 이미지 객체 생성
+  var imagePaths = ['../img/image22.png', '../img/image23.png', '../img/image24.png', '../img/image27.png']; // 이미지 경로 배열
+  //이미지를 생성하는 코드 
+    for (var i = 0; i < 4; i++) {
+      var x = Math.random() * (canvas.width - 50);
+      var y = Math.random() * (canvas.height - 50);
+      var dx = (Math.random() - 0.5) * 4; // 속도를 랜덤으로 설정
+      var dy = (Math.random() - 0.5) * 4;
+      //이미지 크기
+      var width = 100;
+      var height = 60;
+      ////이미지를 선택하는 코드 (변수 이름 신경쓰지 말기)
+      var randomImagePath = imagePaths[i]; 
+  
+      //Math.floor(Math.random() * imagePaths.length)
+      images.push(new ImageObject(randomImagePath, x, y, dx, dy, width, height));
+  }
+  
+  
+  
+  //그리는 함수 
+  function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for(var i = 0; i < (images.length); i++) {
+          images[i].draw();
+          images[i].update();
+      }
+  }
+  
+  setInterval(draw, 10);
+  </script>
+</html>

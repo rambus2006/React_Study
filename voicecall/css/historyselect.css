@@ -1,0 +1,19 @@
+.content{
+    text-align: center;
+
+}.title{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.historytitle{
+    font-weight: bold;
+}
+.dropdown{
+    margin-top: 30px;
+}
+canvas { 
+    background: #fff; 
+    z-index: -1;
+}

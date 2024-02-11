@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/balltest.css">
+</head>
+<body>
+    <canvas id="myCanvas" width="1080" height="600"></canvas>
+</body>
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var ballImage = new Image(); // 이미지 객체 생성
+ballImage.src = '../img/image24.png'; // 이미지 경로 설정
+var x = canvas.width/2;
+var y = canvas.height-30;
+var dx = 2;
+var dy = -2;
+
+function drawBall() {
+    // 이미지를 그립니다.
+    ctx.drawImage(ballImage, x - ballImage.width/2, y - ballImage.height/2);
+}
+
+function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawBall();
+    
+    if(x + dx > canvas.width || x + dx < 0) {
+        dx = -dx;
+    }
+    if(y + dy > canvas.height || y + dy < 0) {
+        dy = -dy;
+    }
+    
+    x += dx;
+    y += dy;
+}
+
+setInterval(draw, 10);
+
+</script>
+</html>
