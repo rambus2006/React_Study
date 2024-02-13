@@ -127,13 +127,9 @@ import "./App.css";
 //     return <div className="react">{name}</div>;
 //   }
 // }
-import MyComponent from "./MyComponent";
+import Counter from "./Counter";
 const App = () => {
   // return <MyComponent name='react'/>; 컴포넌트를 사용할 때 props값 지정하기
-  return (
-    <MyComponent name="react" favoriteNumber={1}>
-      리액트
-    </MyComponent>
-  );
+  return <Counter />;
 };
 export default App;
