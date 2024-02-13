@@ -1,5 +1,3 @@
-import "./App.css";
-
 //react 2.4.3 if 문 대신 조건부 연산자
 // function App() {
 //   const name = "뤼액트";
@@ -127,9 +125,10 @@ import "./App.css";
 //     return <div className="react">{name}</div>;
 //   }
 // }
-import Counter from "./Counter";
+import Say from "./Say";
+
 const App = () => {
   // return <MyComponent name='react'/>; 컴포넌트를 사용할 때 props값 지정하기
-  return <Counter />;
+  return <Say />;
 };
 export default App;
