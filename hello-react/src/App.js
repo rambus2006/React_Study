@@ -125,10 +125,10 @@
 //     return <div className="react">{name}</div>;
 //   }
 // }
-import Say from "./Say";
+import EventPractice from "./EventPractice";
 
 const App = () => {
   // return <MyComponent name='react'/>; 컴포넌트를 사용할 때 props값 지정하기
-  return <Say />;
+  return <EventPractice />;
 };
 export default App;
