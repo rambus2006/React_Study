@@ -127,18 +127,21 @@
 // }
 
 // import ValidationSample from "./ValidationSample";
+// import ScrollBox from "./ScrollBox";
+
 import { Component } from "react";
-import ScrollBox from "./ScrollBox";
+import IterationSample from "./IterationSample";
 class App extends Component {
   // return <MyComponent name='react'/>; 컴포넌트를 사용할 때 props값 지정하기
   render() {
     return (
-      <div>
-        <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
-        <button onClick={() => this.scrollBox.scrollToBottom()}>
-          맨 밑으로
-        </button>
-      </div>
+      // <div>
+      //   <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
+      //   <button onClick={() => this.scrollBox.scrollToBottom()}>
+      //     맨 밑으로
+      //   </button>
+      // </div>
+      <IterationSample />
     );
   }
 }
