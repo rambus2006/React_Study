@@ -125,10 +125,21 @@
 //     return <div className="react">{name}</div>;
 //   }
 // }
-import EventPractice from "./EventPractice";
 
-const App = () => {
+// import ValidationSample from "./ValidationSample";
+import { Component } from "react";
+import ScrollBox from "./ScrollBox";
+class App extends Component {
   // return <MyComponent name='react'/>; 컴포넌트를 사용할 때 props값 지정하기
-  return <EventPractice />;
-};
+  render() {
+    return (
+      <div>
+        <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
+        <button onClick={() => this.scrollBox.scrollToBottom()}>
+          맨 밑으로
+        </button>
+      </div>
+    );
+  }
+}
 export default App;
