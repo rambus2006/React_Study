@@ -159,8 +159,23 @@
 // }
 // export default App;
 // import Counter from "./Counter2";
+import { useState } from "react";
 import Info from "./info";
+
 const App = () => {
-  return <Info />;
+  const [visable, setVisible] = useState(false);
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setVisible(!visable);
+        }}
+      >
+        {visable ? "숨기기" : "보이기"}
+      </button>
+      <hr />
+      {visable && <Info />}
+    </div>
+  );
 };
 export default App;
