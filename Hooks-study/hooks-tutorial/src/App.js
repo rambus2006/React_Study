@@ -4,7 +4,9 @@
 import "./App.css";
 // import Counter from "./Counter";
 // import Info from "./info";
-import Average from "./Average";
+// import Average from "./Average";
+// import UseInputs from "./UseInputs";
+import Info from "./info";
 const App = () => {
   // const [visable, setVisable] = useState(false);
   return (
@@ -19,7 +21,7 @@ const App = () => {
     //   <hr />
     //   {visable && <Info />}
     // </div>
-    <Average />
+    <Info />
   );
 };
 
