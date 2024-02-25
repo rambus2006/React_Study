@@ -20,7 +20,12 @@ import reportWebVitals from "./reportWebVitals";
 // import Color from "./state/basic/Color";
 // import Name from "./ref/Name";
 // import Check from "./ref/Check";
-import Checkbox from "./ref/Checkbox";
+// import Checkbox from "./ref/Checkbox";
+// import Component02 from "./test/Component02";
+// import Container from "./test/Container";
+// import FoodContainer from "./ref/export/FoodContainer";
+// import LifeCycleComponent from "./LifeCycle/class/LifeCycleComponent";
+import LifeCycleContainer from "./LifeCycle/class/LifeCycleContainer";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   //<></> key 값을 사용할 때는 Fragment 를 써줘야 한다.
@@ -42,7 +47,11 @@ root.render(
     {/* <Color /> */}
     {/* <Name /> */}
     {/* <Check /> */}
-    <Checkbox />
+    {/* <Checkbox /> */}
+    {/* <Component02 /> */}
+    {/* <Container /> */}
+    {/* <FoodContainer /> */}
+    <LifeCycleContainer />
   </React.Fragment>
 );
 
